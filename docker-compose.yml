@@ -2,8 +2,11 @@ version: "3.9"
 services:
   weeslack:
     build: .
+    environment:
+      - DBUS_SESSION_BUS_ADDRESS=${DBUS_SESSION_BUS_ADDRESS}
     volumes:
       - weeslack:/home/user/.weechat
+      #- /run/user/1000/bus:/run/user/1000/bus
     tty: true
     stdin_open: true
 
