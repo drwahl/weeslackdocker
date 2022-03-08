@@ -5,3 +5,5 @@ On your first run, you'll need to get a slack token with `/slack register`. Foll
 To take a backup of your weeslack configuration, run `docker-compose up backup`. This will create a directory in your pwd with a tarball of your weeslack configs.
 
 To restore a backup of your weeslack configuration, run `docker-compose up restore`. This will search pwd for a directory called `backup` that has the weeslack tarball in it and expand it into the weeslack docker volume.
+
+The mouse works (Alt+m) but sometimes gets into an unknown state on startup. Try toggling it a couple of times to get it to work.
