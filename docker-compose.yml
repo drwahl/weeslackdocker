@@ -2,6 +2,7 @@ version: "3.9"
 services:
   weeslack:
     build: .
+    container_name: weeslack
     environment:
       - DBUS_SESSION_BUS_ADDRESS=${DBUS_SESSION_BUS_ADDRESS}
     volumes:
