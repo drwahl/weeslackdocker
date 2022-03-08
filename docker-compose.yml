@@ -6,5 +6,25 @@ services:
       - weeslack:/home/user/.weechat
     tty: true
     stdin_open: true
+
+  backup:
+    image: alpine
+    tty: false
+    environment:
+      - TARGET=weeslack
+    volumes:
+      - ./backup:/backup
+      - weeslack:/volume
+    command: sh -c "tar -cjf /backup/$${TARGET}.tar.bz2 -C /volume ./"
+
+  restore:
+    image: alpine
+    environment:
+      - SOURCE=weeslack
+    volumes:
+      - ./backup:/backup
+      - weeslack:/volume
+    command: sh -c "rm -rf /volume/* /volume/..?* /volume/.[!.]* ; tar -C /volume/ -xjf /backup/$${SOURCE}.tar.bz2"
+
 volumes:
   weeslack: {}
