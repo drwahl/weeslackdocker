@@ -4,7 +4,7 @@ services:
     build: .
     volumes:
       - weeslack:/home/user/.weechat
-    #tty: true
+    tty: true
     stdin_open: true
 volumes:
   weeslack: {}
