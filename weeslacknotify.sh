@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# deps: wcstools inotify-tools
+
 USERNAME=${1:-$USER}
 dockervolpath=$(docker volume inspect weeslackdocker_weeslack -f '{{ .Mountpoint }}')
 logspath="${dockervolpath}/logs"
